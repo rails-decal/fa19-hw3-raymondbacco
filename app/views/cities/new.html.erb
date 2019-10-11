@@ -1,0 +1,14 @@
+<h1>Create a New City</h1>
+
+<%= form_for @city do |f| %>
+  <%= label_tag(:name, "City") %>
+  <%= f.text_field :name %></br>
+
+  <%= label_tag(:population, "Population") %>                                                                                               
+  <%= f.text_field :population %></br>
+
+  <%= label_tag(:landmark, "Landmark") %> 
+  <%= f.text_field :landmark %></br>
+  
+  <%= f.submit "Create" %> 
+<% end %>

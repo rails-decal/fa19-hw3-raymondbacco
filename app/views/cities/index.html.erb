@@ -1,0 +1,11 @@
+<h1>City List</h1>
+
+<%= link_to "Create New City", new_city_path %>
+
+<% @cities.each do |city| %>
+    <li>
+      <%= link_to city.name, city_path(city.id) %>
+      <%= link_to "update", update_city_path(todo[:id]) %>
+      <%= link_to "delete", city, method: :delete, data: { confirm: "You sure?" }%>
+    </li>
+<% end %>
