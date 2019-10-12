@@ -1,14 +1,8 @@
 <h1>Create a New City</h1>
+<%= form_with local: true, method: "post", url:"/cities/create" do |form| %>
+  <p>City: <%= form.text_field :city %></p>
+  <p>Landmark: <%= form.text_field :landmark %></p>
+  <p>Population: <%= form.text_field :population %></p>
+<%= form.submit "Submit" %>
 
-<%= form_for @city do |f| %>
-  <%= label_tag(:name, "City") %>
-  <%= f.text_field :name %></br>
-
-  <%= label_tag(:population, "Population") %>                                                                                               
-  <%= f.text_field :population %></br>
-
-  <%= label_tag(:landmark, "Landmark") %> 
-  <%= f.text_field :landmark %></br>
-  
-  <%= f.submit "Create" %> 
 <% end %>

@@ -1,11 +1,17 @@
 <h1>City List</h1>
 
-<%= link_to "Create New City", new_city_path %>
+<%= link_to "Back to Lab", main_index_path %>
+<p></p>
+<%= link_to "Create New City", cities_new_path %>
 
-<% @cities.each do |city| %>
-    <li>
-      <%= link_to city.name, city_path(city.id) %>
-      <%= link_to "update", update_city_path(todo[:id]) %>
-      <%= link_to "delete", city, method: :delete, data: { confirm: "You sure?" }%>
-    </li>
+<% $cities.values.each do |city| %>
+<!-- In between these two ruby tags, put your code for displaying a city! -->
+<h1> City: <%=city.name%></h1>
+<p> Landmark: <%=city.landmark%></p>
+<p> Population: <%=city.population%></p>
+<p> Weather </p>
+<p> Temperature: <%=((((city.weather[:temperature])-273.15)*(9/5))+32).round%> degrees Fahrenheit</p>
+<p> Forcast: <%=city.weather[:description]%></p>
+<%= link_to "update", cities_update_path(name:city.name) %>
 <% end %>
+ 

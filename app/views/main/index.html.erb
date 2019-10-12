@@ -1,22 +1,18 @@
+<%= link_to "Link to Homework", cities_index_path %>
+<p></p>
+<h1>LAB</h1>
 <!-- Your code here -->
 <% if not @name.nil? %>
 <h1>Hello <%=@name%></h1>
 <% end %>
 
-<!--
-<% if not @w.nil? %>
-<h1>In the city of <%=@city_name%></h1>
-<h1>The Forcast is <%=@d%></h1>
-<h1>and the Temperature is:</h1>  
-<h1><%=@f%> Fahrenheit</h1>
-<% end %>
---> 
-
-<%City.all.each do |c|%>
-  <% if not c.nil?%>
-    <h1>In The City of <%=c.name%></h1>
-    <h1>The Temperature is:<%=c.temperature%> Fahrenheit</h1>
-    <h1>and the Forcast is:<%=c.description%></h1>
+<% if not $cities.nil? %>
+  <% $cities.values.each do |c|%>
+    <% if not c.nil?%>
+      <h1>In The City of <%=c.name%></h1>
+      <h1>The Temperature is:<%=((((c.weather[:temperature])-273.15)*(9/5))+32).round%> Fahrenheit</h1>
+      <h1>and the Forcast is:<%=c.weather[:description]%></h1>
+    <%end%>
   <%end%>
 <%end%>
 
@@ -24,3 +20,4 @@
    <%= f.text_field :city %>
    <%= f.submit %>
  <% end %>
+
